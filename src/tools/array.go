@@ -2,6 +2,7 @@ package tools
 
 import (
 	"math/rand"
+	"time"
 )
 
 /**
@@ -18,6 +19,7 @@ func Random(min, max, size int) []int {
 	}
 
 	array := make([]int, size)
+	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < size; i++ {
 		numb := rand.Intn(max)
 		if numb <= min {
