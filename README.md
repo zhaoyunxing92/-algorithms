@@ -2,7 +2,7 @@
 
 算法和数据结构
 
-## 代码
+## 代码资源
 
 - [github:algorithms](https://github.com/zhaoyunxing92/algorithms)
 
