@@ -12,8 +12,8 @@
 
 ## 排序
 
-- [x] [冒泡排序](./src/sort/bubble/readme.md)  比较排序
-- [x] [选择排序](./src/sort/selection/readme.md)  比较排序
+- [x] [冒泡排序](sort/bubble/readme.md)  比较排序
+- [x] [选择排序](sort/selection/readme.md)  比较排序
 
 
 

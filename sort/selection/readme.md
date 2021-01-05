@@ -4,7 +4,7 @@
 
 简单点说选择排序就是在数组总找出最大或最小的值与数组中其他元素比较。如图
 
-![select sort](../../../img/select_sort.gif)
+![select sort](../../img/select_sort.gif)
 
 ## 先看总结
 

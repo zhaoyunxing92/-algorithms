@@ -4,7 +4,7 @@
 
 重复地走访要排序的元素，依次比较两个相邻元素的大小依次完成排序。如图
 
-![bubble sort](../../../img/bubble_sort.gif)
+![bubble sort](../../img/bubble_sort.gif)
 
 ## 先看总结
 
