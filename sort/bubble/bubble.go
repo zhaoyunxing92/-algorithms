@@ -32,7 +32,8 @@ func BubbleSort(array []int) time.Duration {
 			}
 		}
 	}
-	fmt.Printf("[BubbleSort]数组长度：%d,比较次数：%d \n", len(array), count)
+	fmt.Printf("[BubbleSort1]数组长度：%d,比较次数：%d \n", len(array), count)
+	fmt.Println("[BubbleSort1]", array)
 	return time.Now().Sub(start)
 }
 
@@ -56,10 +57,12 @@ func BubbleSort2(array []int) time.Duration {
 		}
 	}
 	fmt.Printf("[BubbleSort2]数组长度：%d,比较次数：%d \n", len(array), count)
+	fmt.Println("[BubbleSort2]", array)
 	return time.Now().Sub(start)
 }
 
 //BubbleSort3:假如给你的数据已经有序就不用找排序了
+//数组后面有序的个数越多比较次数越少
 func BubbleSort3(array []int) time.Duration {
 	start := time.Now()
 	count := 0 //记录比较次数
@@ -75,6 +78,7 @@ func BubbleSort3(array []int) time.Duration {
 		end = index
 	}
 	fmt.Printf("[BubbleSort3]数组长度：%d,比较次数：%d \n", len(array), count)
+	fmt.Println("[BubbleSort3]", array)
 	return time.Now().Sub(start)
 }
 
