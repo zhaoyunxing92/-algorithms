@@ -1,7 +1,7 @@
 package array
 
 import (
-	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -14,12 +14,29 @@ import (
 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
-//removeDuplicates :
+
+func removeDuplicates(nums []int) int {
+	size := len(nums)
+
+	if size <= 1 {
+		return size
+	}
+	slow := 0
+	for fast := 1; fast < size; fast++ {
+		if nums[slow] != nums[fast] {
+			nums[slow+1] = nums[fast]
+			slow++
+		}
+	}
+	return slow + 1
+}
+
 func TestRemoveDuplicates(t *testing.T) {
-	nums := []int{1, 1, 2}
-	duplicates := removeDuplicates(nums)
-	fmt.Println(duplicates)
+	nums := []int{1, 2}
+	size := removeDuplicates(nums)
+	assert.Equal(t, 2, size)
+
 	nums = []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
-	duplicates = removeDuplicates(nums)
-	fmt.Println(duplicates)
+	size = removeDuplicates(nums)
+	assert.Equal(t, 5, size)
 }
