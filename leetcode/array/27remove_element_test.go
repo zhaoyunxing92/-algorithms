@@ -45,9 +45,9 @@ func TestRemoveElement(t *testing.T) {
 	assert.Equal(t, 2, size)
 
 	nums = []int{0, 1, 2, 2, 3, 0, 4, 2}
-	val = 2
+	val = 0
 	size = removeElement(nums, val)
-	assert.Equal(t, 5, size)
+	assert.Equal(t, 6, size)
 
 	nums = []int{2}
 	val = 2
