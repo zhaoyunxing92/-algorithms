@@ -1,7 +1,7 @@
 package array
 
 import (
-	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -46,24 +46,65 @@ import (
 */
 
 func rotate(nums []int, k int) {
-	//边界检查
 	size := len(nums)
-	if size < k {
-		return
-	}
-
-	/*for k > 0 {
-		for j := 0; j < size; j++ {
-			nums[k],
-		}
-		k--
-	}*/
+	//
+	k %= size
+	rotateAll(nums)
+	rotateAll(nums[:k])
+	rotateAll(nums[k:])
 }
 
+//旋转全部
+func rotateAll(nums []int) {
+	size := len(nums)
+	//边界检查
+	mid := len(nums) / 2
+	//数组全部翻转
+	for i := 0; i < mid; i++ {
+		nums[i], nums[size-1-i] = nums[size-1-i], nums[i]
+	}
+}
+
+/*
+### 解题思路
+#### 1.使用数组反转
+把它比作一个会动的蛇,`k`就是移动几格，这个题的关键点是`k`值的计算，前面几次都没有考虑到`k`超出了数组长度怎么办
+
+例如：[1, 2, 3, 4, 5, 6]  k=11
+这个时候蛇的走动步骤如下
+```
+    //1: 6,1,2,3,4,5
+	//2: 5,6,1,2,3,4
+	//3: 4,5,6,1,2,3
+	//4: 3,4,5,6,1,2
+	//5: 2,3,4,5,6,1
+	//6: 1,2,3,4,5,6
+
+	//7: 6,1,2,3,4,5
+	//8: 5,6,1,2,3,4
+	//9: 4,5,6,1,2,3
+	//10: 3,4,5,6,1,2
+	//11: 2,3,4,5,6,1
+```
+你就会发现第一步和第七步居然一样走十一步和走五步一样，因此取余就可以了
+
+#### 2.使用额外的数组
+
+使用一个新的数组保存要移动的数组
+
+
+*/
 func TestRotate(t *testing.T) {
-	nums := []int{1, 2, 3, 4, 5, 6, 7}
-	a:=5
-	a %= len(nums)
+	nums := []int{1, 2, 3, 4, 5, 6}
+
+	rotate(nums, 11)
+	assert.Equal(t, []int{2, 3, 4, 5, 6, 1}, nums)
+
+	nums = []int{1, 2, 3, 4, 5, 6, 7}
 	rotate(nums, 3)
-	fmt.Println(a)
+	assert.Equal(t, []int{5, 6, 7, 1, 2, 3, 4}, nums)
+
+	nums = []int{-1, -100, 3, 99}
+	rotate(nums, 2)
+	assert.Equal(t, []int{3, 99, -1, -100}, nums)
 }
