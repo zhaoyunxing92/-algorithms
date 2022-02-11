@@ -41,7 +41,7 @@ func removeDuplicates(nums []int) int {
 }
 
 func TestRemoveDuplicates(t *testing.T) {
-	nums := []int{1, 2}
+	nums := []int{1, 1, 2}
 	size := removeDuplicates(nums)
 	assert.Equal(t, 2, size)
 
